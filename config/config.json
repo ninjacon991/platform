@@ -22,7 +22,8 @@
         "AnalyticsUrl": "",
         "UseLocalStorage": true,
         "StorageDirectory": "./data/",
-        "AllowedLoginAttempts": 10
+        "AllowedLoginAttempts": 10,
+        "AesKey": "jYmASyfjaiY2P92KsnsSfc1dg0asfK3z"
     },
     "SSOSettings": {
         "gitlab": {

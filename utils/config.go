@@ -31,6 +31,7 @@ type ServiceSettings struct {
 	UseLocalStorage      bool
 	StorageDirectory     string
 	AllowedLoginAttempts int
+	AesKey               string
 }
 
 type SSOSetting struct {
