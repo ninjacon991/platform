@@ -108,6 +108,7 @@ type SessionStore interface {
 	UpdateLastActivityAt(sessionId string, time int64) StoreChannel
 	UpdateRoles(userId string, roles string) StoreChannel
 	GetByAccessToken(token string) StoreChannel
+	RemoveByAccessToken(token string) StoreChannel
 }
 
 type AuditStore interface {
@@ -125,10 +126,12 @@ type AppStore interface {
 type AuthDataStore interface {
 	Save(authData *model.AuthData) StoreChannel
 	Get(code string) StoreChannel
+	Remove(code string) StoreChannel
 }
 
 type AccessDataStore interface {
 	Save(accessData *model.AccessData) StoreChannel
 	Get(token string) StoreChannel
 	GetByAuthCode(authCode string) StoreChannel
+	Remove(token string) StoreChannel
 }
