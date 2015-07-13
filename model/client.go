@@ -23,6 +23,7 @@ const (
 	HEADER_FORWARDED       = "X-Forwarded-For"
 	HEADER_FORWARDED_PROTO = "X-Forwarded-Proto"
 	HEADER_TOKEN           = "token"
+	HEADER_OAUTH_TOKEN     = "token"
 	HEADER_BEARER          = "BEARER"
 	HEADER_AUTH            = "Authorization"
 )
@@ -300,7 +301,7 @@ func (c *Client) Logout() (*Result, *AppError) {
 
 func (c *Client) SetOAuthToken(token string) {
 	c.AuthToken = token
-	c.AuthType = HEADER_TOKEN
+	c.AuthType = HEADER_OAUTH_TOKEN
 }
 
 func (c *Client) RevokeSession(sessionAltId string) (*Result, *AppError) {
