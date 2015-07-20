@@ -71,7 +71,7 @@ func (c *Client) DoGet(url string, data string, etag string) (*http.Response, *A
 	}
 
 	if len(c.AuthToken) > 0 {
-		rq.Header.Set(HEADER_AUTH, "BEARER "+c.AuthToken)
+		rq.Header.Set(HEADER_AUTH, c.AuthType+" "+c.AuthToken)
 	}
 
 	if rp, err := c.HttpClient.Do(rq); err != nil {
@@ -293,6 +293,7 @@ func (c *Client) Logout() (*Result, *AppError) {
 		return nil, err
 	} else {
 		c.AuthToken = ""
+		c.AuthType = HEADER_BEARER
 
 		return &Result{r.Header.Get(HEADER_REQUEST_ID),
 			r.Header.Get(HEADER_ETAG_SERVER), MapFromJson(r.Body)}, nil
@@ -302,6 +303,11 @@ func (c *Client) Logout() (*Result, *AppError) {
 func (c *Client) SetOAuthToken(token string) {
 	c.AuthToken = token
 	c.AuthType = HEADER_OAUTH_TOKEN
+}
+
+func (c *Client) ClearOAuthToken() {
+	c.AuthToken = ""
+	c.AuthType = HEADER_BEARER
 }
 
 func (c *Client) RevokeSession(sessionAltId string) (*Result, *AppError) {
