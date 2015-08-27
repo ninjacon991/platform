@@ -130,7 +130,7 @@ Part of the build process is running ESLint. ESLint is the final authority on al
 
 Instructions on how to use ESLint with your favourite editor can be found here: [http://eslint.org/docs/user-guide/integrations](http://eslint.org/docs/user-guide/integrations)
 
-This is an abridged version of the [Airbnb React/JSX Style Guide](https://github.com/airbnb/javascript/tree/master/react#airbnb-reactjsx-style-guide). Anything that is unclear here follow that guide. If there is a conflict, follow what is said below. 
+This is an abridged version of the [Airbnb React/JSX Style Guide](https://github.com/airbnb/javascript/tree/master/react#airbnb-reactjsx-style-guide). Follow that guide if anything is unclear here. If there is a conflict, follow what is said below. 
 
 ### General
 
