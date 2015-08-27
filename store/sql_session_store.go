@@ -191,6 +191,9 @@ func (me SqlSessionStore) UpdateRoles(userId, roles string) StoreChannel {
 		} else {
 			result.Data = userId
 		}
+
+		storeChannel <- result
+		close(storeChannel)
 	}()
 
 	return storeChannel
